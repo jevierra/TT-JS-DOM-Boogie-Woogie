@@ -3,13 +3,29 @@ const listDiv = document.querySelector('.list');
 const descriptionInput = document.querySelector('input.description');
 const descriptionP = document.querySelector('p.description');
 const descriptionButton = document.querySelector('button.description');
+const listUL = listDiv.querySelector('ul')
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
-const removeItemButton = document.querySelector('button.removeItemButton');
+
+
+
+/*
+
+Shoot child elements into the void
 
 listDiv.addEventListener('click', (event) => {
   if (event.target.tagName == 'LI') {
     let li = event.target;
+    let ul = li.parentNode;
+    ul.removeChild(li);
+    
+  }
+});
+*/
+
+listUL.addEventListener('click', (event) => {
+  if (event.target.tagName == 'BUTTON') {
+    let li = event.target.parentNode;
     let ul = li.parentNode;
     ul.removeChild(li);
     
@@ -41,12 +57,7 @@ addItemButton.addEventListener('click', () => {
   addItemInput.value = '';
 });
   
-removeItemButton.addEventListener('click', () => {
-  let ul = document.getElementsByTagName('ul')[0];
-  let li = document.querySelector('li:last-child');
-  ul.removeChild(li);
-});
-  
+
   
   
   
